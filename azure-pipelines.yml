@@ -4,7 +4,8 @@ pool:
   name: Azure Pipelines
   vmImage: 'vs2017-win2016'
 steps:
-  - task: ms-devlabs.custom-terraform-tasks.custom-terraform-release-task.TerraformTaskV1@0
+  - task: Bash@3
     displayName: 'Terraform : PLAN'
     inputs:
-      command: plan
+      targetType: inline
+      script: terraform init
